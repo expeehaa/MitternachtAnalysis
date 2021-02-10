@@ -1,4 +1,4 @@
-set term pngcairo size 640,640 enhanced font 'Verdana,9'
+set term pngcairo size 1280,720 enhanced font 'Verdana,9'
 
 ticx(n) = (GPVAL_X_MAX-GPVAL_X_MIN)/n
 
