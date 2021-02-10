@@ -3,7 +3,7 @@
 require 'pg'
 require 'psych'
 
-GUILD_ID = '147439310096826368'
+@config = Psych.load_file('config.yml')
 
 def with_db
 	args = Psych.load_file('db.yml')
@@ -30,7 +30,7 @@ NAME_JOIN_QUERY = <<~Q.strip
 	LEFT OUTER JOIN (SELECT DISTINCT ON (unh."UserId") * FROM "UsernameHistory" AS unh WHERE unh."Discriminator" = 'UsernameHistoryModel' ORDER BY unh."UserId", unh."DateAdded" DESC) AS unh ON unh."UserId" = subject."UserId"
 Q
 GUILD_CONDITION = <<~Q.strip
-	subject."GuildId" = #{GUILD_ID}
+	subject."GuildId" = #{@config[:guild_id]}
 Q
 
 with_db do |db|
