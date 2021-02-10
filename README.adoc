@@ -1,0 +1,3 @@
+# MitternachtAnalysis
+
+The scripts in this project can be used to generate CSV data and plots from a database used by the https://github.com/Midnight-Myth/Mitternacht-NEW[Mitternacht bot].
