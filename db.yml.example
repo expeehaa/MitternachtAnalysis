@@ -1,0 +1,6 @@
+---
+:host:     localhost
+:port:     5432
+:dbname:   name_of_the_database
+:user:     some_username_to_login_with
+:password: password_of_the_user
