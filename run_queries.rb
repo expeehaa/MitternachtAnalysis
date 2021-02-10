@@ -43,7 +43,7 @@ with_db do |db|
 	Q
 
 	query db, 'data/total_daily_money.csv', <<~Q
-		SELECT sum(subject."MoneyReceived") AS total_dailymoney_received FROM "DailyMoneyStats" AS subject WHERE #{GUILD_CONDITION}
+		SELECT sum(subject."MoneyReceived") AS total_dailymoney_received, count(*) AS total_times_dailymoney_collected FROM "DailyMoneyStats" AS subject WHERE #{GUILD_CONDITION}
 	Q
 	
 	query db, 'data/voicestats.csv', <<~Q
