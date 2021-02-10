@@ -46,6 +46,10 @@ with_db do |db|
 		SELECT sum(subject."MoneyReceived") AS total_dailymoney_received, count(*) AS total_times_dailymoney_collected FROM "DailyMoneyStats" AS subject WHERE #{GUILD_CONDITION}
 	Q
 	
+	query db, 'data/total_money.csv', <<~Q
+		SELECT sum(subject."Amount") AS total_money FROM "Currency" AS subject WHERE #{GUILD_CONDITION}
+	Q
+	
 	query db, 'data/voicestats.csv', <<~Q
 		SELECT subject."TimeInVoiceChannel", subject."UserId", unh."Name" FROM "VoiceChannelStats" AS subject #{NAME_JOIN_QUERY} WHERE #{GUILD_CONDITION} ORDER BY subject."TimeInVoiceChannel" DESC
 	Q
